@@ -25,4 +25,4 @@ CREATE TABLE `oauth_client_details` (
   `additional_information` varchar(200) DEFAULT NULL,
   `autoapprove` tinyint(1) DEFAULT NULL
 );
-insert into `oauth_client_details` (`client_id`, `client_secret`, `resource_ids`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) values('acme','acmesecret',NULL,'openid','authorization_code,refresh_token',NULL,NULL,'7200','7200',NULL,'1');
+insert into `oauth_client_details` (`client_id`, `client_secret`, `resource_ids`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`) values('acme','acmesecret','resource3','openid','authorization_code,refresh_token',NULL,NULL,'7200','7200',NULL,'1');
