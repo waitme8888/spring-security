@@ -1,0 +1,25 @@
+server:
+  port: 9090
+
+#endpoints:
+#  restart:
+#    enabled: true
+#  shutdown:
+#    enabled: true
+#  health:
+#    sensitive: false
+
+management:
+  security:
+    enabled: true
+
+security:
+  basic:
+    enabled: true
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:9999/uaa/user
+
+logging:
+  level: debug
+

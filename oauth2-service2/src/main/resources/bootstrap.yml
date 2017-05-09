@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: oauth2-service
+  cloud:
+      zookeeper:
+            connect-string: localhost:2181
+            discovery:
+              register: true
+              #instance-host: ${server.address}
+              #instance-port: ${server.port}

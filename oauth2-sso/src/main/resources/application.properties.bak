@@ -1,0 +1,13 @@
+server.port: 9999
+server.contextPath: /uaa
+security.user.password: password
+security.sessions: if-required
+security.oauth2.client.clientId: acme
+security.oauth2.client.clientSecret: acmesecret
+security.oauth2.client.authorized-grant-types: authorization_code,refresh_token,password
+security.oauth2.client.scope: openid
+security.oauth2.client.accessTokenValiditySeconds: 1800
+logging.level.org.springframework.security: DEBUG
+
+#http://localhost:9999/uaa/oauth/authorize?response_type=code&client_id=acme&redirect_uri=http://example.com
+#http://acme:acmesecret@localhost:9999/uaa/oauth/token?code=c3Ylim&grant_type=authorization_code&redirect_uri=http%3A%2F%2Fexample.com

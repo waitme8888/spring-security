@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+management:
+  security:
+    enabled: true
+
+security:
+  basic:
+    enabled: true
+  user:
+    password: password
+  oauth2:
+    client:
+      access-token-uri: http://localhost:9999/uaa/oauth/token
+      user-authorization-uri: http://localhost:9999/uaa/oauth/authorize
+      client-id: acme
+      client-secret: acmesecret
+    resource:
+      user-info-uri: http://localhost:9999/uaa/user
+      prefer-token-info: false
+  sessions: ALWAYS
+
+zuul:
+  routes:
+    oauth2-service:
+        path: /**
+        serviceId: oauth2-service
+#        url: http://localhost:9090
+    user:
+      path: /user/**
+      url: http://localhost:9999/uaa/user
+
+proxy:
+  auth:
+    routes:
+      oauth2-service: oauth2
+
+logging:
+  level: debug
+

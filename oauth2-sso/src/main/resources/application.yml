@@ -1,0 +1,21 @@
+server:
+  port: 9999
+  context-path: /uaa
+
+security:
+  ignored: /css/**,/js/**,/img/**,/static/**
+  user:
+    password: password
+  oauth2:
+    client:
+      client-id: acme
+      client-secret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,password
+      scope: openid
+      access-token-validity-seconds: 1800
+      auto-approve-scopes: openid
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
