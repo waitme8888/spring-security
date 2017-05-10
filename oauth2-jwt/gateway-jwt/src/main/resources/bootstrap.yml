@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: oauth2-client
+    cloud:
+        zookeeper:
+            connect-string: localhost:2181
+            discovery:
+                register: false
+

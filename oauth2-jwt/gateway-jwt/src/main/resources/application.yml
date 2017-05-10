@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+management:
+  security:
+    enabled: true
+
+security:
+  basic:
+    enabled: true
+  oauth2:
+    client:
+      access-token-uri: http://localhost:9999/uaa/oauth/token
+      user-authorization-uri: http://localhost:9999/uaa/oauth/authorize
+      client-id: acme
+      client-secret: acmesecret
+    resource:
+      user-info-uri: http://localhost:9999/uaa/user
+      prefer-token-info: false
+      jwt:
+        key-value:
+          -----BEGIN PUBLIC KEY-----
+          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCC0HFX23zneRUGB00xo0V7aBLQcqGehQMdqtKaj9nI1lPPHmywiLQ0LFDxbMUJteE169JBf9tuBwmWPDSot3iKg3x49KTlLisHIaM9RRco2Xa/B9G8CAq4sM8J78EJggP5Ggn1ihdqSeGFY2pg5qbS/HaX3KVi9EdhDlJWeVQdHwIDAQAB
+          -----END PUBLIC KEY-----
+  sessions: ALWAYS
+
+zuul:
+  routes:
+    oauth2-service:
+        path: /**
+        serviceId: oauth2-service
+#        url: http://localhost:9090
+    user:
+      path: /user/**
+      url: http://localhost:9999/uaa/user
+
+proxy:
+  auth:
+    routes:
+      oauth2-service: oauth2
+
+logging:
+  level: debug
+

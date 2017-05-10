@@ -1,0 +1,12 @@
+server:
+  port: 9094
+
+security:
+  sessions: NEVER
+  oauth2:
+    resource:
+      jwt:
+        key-value:
+          -----BEGIN PUBLIC KEY-----
+          MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCC0HFX23zneRUGB00xo0V7aBLQcqGehQMdqtKaj9nI1lPPHmywiLQ0LFDxbMUJteE169JBf9tuBwmWPDSot3iKg3x49KTlLisHIaM9RRco2Xa/B9G8CAq4sM8J78EJggP5Ggn1ihdqSeGFY2pg5qbS/HaX3KVi9EdhDlJWeVQdHwIDAQAB
+          -----END PUBLIC KEY-----
